@@ -53,9 +53,9 @@ if filereadable("/etc/vim/vimrc.local")
 endif
 
 set number
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set autoindent
 set smarttab
@@ -64,7 +64,16 @@ set showmatch
 set incsearch
 set hlsearch
 
+au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
+let g:go_highlight_structs = 1 
+let g:go_highlight_methods = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 
-"set term=xterm-256color
-"colorscheme molokai
-colorscheme koehler
+set term=xterm-256color
+
+packadd! dracula
+let g:dracula_italic=0
+colorscheme dracula
+highlight Normal ctermbg=None
